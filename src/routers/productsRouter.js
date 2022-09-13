@@ -2,9 +2,11 @@ const express = require('express');
 
 const router = express.Router();
 
+const { validName } = require('../middlewares/nameProductValid');
+
 const productsController = require('../controllers/productsContoller');
 
-router.post('/', productsController.productPost);
+router.post('/', validName, productsController.productPost);
 
 router.get('/', productsController.products);
 
