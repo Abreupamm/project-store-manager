@@ -1,17 +1,16 @@
-// const connection = require('../db/connection');
+const connection = require('../db/connection');
 
-const findProducts = require('../db/productsDB');
-
-const selectProducts = async (product) => {
-  // const columns = Object.keys(product).map((key) => `${key}`).join(', ');
-  // const placeholders = Object.keys(product).map((_key) => '?').join(', ');
+const selectProducts = async (productId) => {
   let products;
-  if (!product) { 
-    products = await findProducts.findAll();
+  if (!productId) { 
+    products = await connection.execute('SELECT * FROM  StoreManager.products');
   } else {
-    products = await findProducts.findById(product);
+    products = await connection.execute(
+      'SELECT * FROM StoreManager.products WHERE id = ?',
+      [productId],
+    );
   }
-  return products;
+  return products[0];
 };
 
 module.exports = { selectProducts };

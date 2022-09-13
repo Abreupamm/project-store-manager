@@ -5,16 +5,17 @@ const mapError = require('../utils/error');
 
 const getAllProducts = async () => {
   const result = await modelsProducts.selectProducts();
-  
+  if (!result) return { type: mapError('NOT_FOUND'), message: 'Products not found' };
+
   return { type: null, message: result };
 };
 
-const getAllProductsById = async (product) => { 
-  const result = await modelsProducts.selectProducts(product);
-  
-  if (!result) return { type: mapError('NOT_FOUND'), message: 'Product not found' };
+const getAllProductsById = async (productId) => { 
+  const result = await modelsProducts.selectProducts(productId);
 
-  return { type: null, message: result };
+  if (result.length === 0) return { type: mapError('NOT_FOUND'), message: 'Product not found' };
+
+  return { type: null, message: result[0] };
 };
 
 module.exports = { getAllProducts, getAllProductsById };
