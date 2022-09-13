@@ -22,9 +22,85 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-13T14:09:36.108Z",
-    "modified": "2022-09-13T15:23:44.802Z",
+    "modified": "2022-09-13T18:49:54.340Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f619c0b8-08a2-44bc-a03c-3a5eea282fff",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost/products",
+    "url": "https://localhost/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-09-13T18:21:42.947Z",
+    "modified": "2022-09-13T18:21:43.079Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ab36374d-7c9a-4632-a753-9d3bae19f97f",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost:3000/products",
+    "url": "https://localhost:3000/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-09-13T18:21:54.577Z",
+    "modified": "2022-09-13T18:32:40.916Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "34b78a79-5529-4f2f-8552-b625fbdc102c",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost:3000/products",
+    "url": "https://localhost:3000/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-13T18:37:31.264Z",
+    "modified": "2022-09-13T18:48:27.228Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7b03c0f6-5c6f-4e28-a449-40dfdd713b86",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products",
+    "url": "localhost:3000/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-09-13T18:48:58.052Z",
+    "modified": "2022-09-13T19:01:30.337Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]
