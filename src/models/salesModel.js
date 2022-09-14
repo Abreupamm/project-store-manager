@@ -33,8 +33,7 @@ const getAllSales = async () => {
 
 const getByIdSales = async (id) => { 
   const result = await connection.execute(
-    `SELECT sa.id AS 'saleId',
-    sa.date AS 'date',
+    `SELECT sa.date AS 'date',
     pr.product_id AS 'productId',
     pr.quantity AS 'quantity'
     FROM ${table1} AS sa
