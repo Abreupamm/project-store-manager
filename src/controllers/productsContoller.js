@@ -22,4 +22,16 @@ const productPost = async (req, res) => {
   return res.status(201).json({ id, name });
 };
 
-module.exports = { products, productById, productPost };
+const productPut = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.bidy;
+  const result = await productsService.upDateProduct(id, name);
+  return res.status(200).json({ id, name: result });
+};
+
+module.exports = {
+  products,
+  productById,
+  productPost,
+  productPut,
+};
