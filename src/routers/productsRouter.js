@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const { validName } = require('../middlewares/nameProductValid');
+const { validName } = require('../middlewares/products/nameProductValid');
 
 const productsController = require('../controllers/productsContoller');
 

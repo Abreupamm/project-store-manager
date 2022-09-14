@@ -1,4 +1,4 @@
-const mapError = require('../utils/error');
+const mapError = require('../../utils/error');
 
 const validName = (req, res, next) => {
   const { name } = req.body;
@@ -14,7 +14,7 @@ const validName = (req, res, next) => {
       .status(mapError('INVALID_VALUE'))
       .json({ message: '"name" length must be at least 5 characters long' });
   }
-  return next();
+  next();
 };
 
 module.exports = { validName };
