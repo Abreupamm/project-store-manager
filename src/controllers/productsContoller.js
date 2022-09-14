@@ -10,7 +10,7 @@ const products = async (req, res) => {
 
 const productById = async (req, res) => {
   const { id } = req.params;
-  const { type, message } = await productsService.getAllProductsById(id);
+  const { type, message } = await productsService.getProductsById(id);
   if (type) return res.status(type).json({ message });
 
   return res.status(200).json(message);
@@ -24,9 +24,12 @@ const productPost = async (req, res) => {
 
 const productPut = async (req, res) => {
   const { id } = req.params;
-  const { name } = req.bidy;
-  const result = await productsService.upDateProduct(id, name);
-  return res.status(200).json({ id, name: result });
+  const { name } = req.body;
+
+  const { type } = await productsService.upDateProduct(id, name);
+  if (!type) {
+    return res.status(200).json({ id, name });
+  }
 };
 
 module.exports = {

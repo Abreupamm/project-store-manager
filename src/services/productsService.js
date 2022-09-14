@@ -10,7 +10,7 @@ const getAllProducts = async () => {
   return { type: null, message: result };
 };
 
-const getAllProductsById = async (productId) => { 
+const getProductsById = async (productId) => { 
   const result = await modelsProducts.selectProducts(productId);
 
   if (result.length === 0) return { type: mapError('NOT_FOUND'), message: 'Product not found' };
@@ -23,14 +23,14 @@ const newProduct = async (product) => {
   return result;
 };
 
-const upDateProduct = async (id, newName) => {
-  const result = await modelsProducts.upDateProductById(id, newName);
-  return { type: null, message: result[0] };
+const upDateProduct = async (id, neWname) => {
+  const result = await modelsProducts.upDateProductById(id, neWname);
+  return { type: null, result };
 };
 
 module.exports = {
   getAllProducts,
-  getAllProductsById,
+  getProductsById,
   newProduct,
   upDateProduct,
 };

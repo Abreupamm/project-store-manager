@@ -22,12 +22,14 @@ const insertProducts = async (product) => {
   return insertId;
 };
 
-const upDateProductById = async (id, newName) => {
+const upDateProductById = async (id, name) => {
+  const newName = JSON.stringify(name);
   const product = await connection.execute(
     `UPDATE ${table}
     SET name = ${newName}
     WHERE id = ${id}`,
   );
+ 
   return product;
 };
 
