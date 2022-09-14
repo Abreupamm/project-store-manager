@@ -8,4 +8,12 @@ const sales = async (req, res) => {
   return res.status(201).json(message);
 };
 
-module.exports = { sales };
+const getSales = async (req, res) => {
+  const { id } = req.params;
+  
+  const { message } = await serviceSales.getSales(id);
+  
+  return res.status(200).json(message);
+};
+
+module.exports = { sales, getSales };

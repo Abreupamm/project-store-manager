@@ -11,4 +11,6 @@ router.post('/',
   validQuantity,
   salesController.sales);
 
+router.get('/', salesController.getSales);
+
 module.exports = router;
