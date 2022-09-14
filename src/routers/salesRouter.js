@@ -12,5 +12,6 @@ router.post('/',
   salesController.sales);
 
 router.get('/', salesController.getSales);
+router.get('/:id', salesController.getSales);
 
 module.exports = router;

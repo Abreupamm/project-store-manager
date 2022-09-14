@@ -42,7 +42,7 @@ const getByIdSales = async (id) => {
     WHERE sale_id = ${id}
     ORDER BY sale_id ASC, product_id ASC`,
   );
-  return result;
+  return result[0];
 };
 
 module.exports = {
