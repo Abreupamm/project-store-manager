@@ -33,7 +33,14 @@ const getAllSales = async () => {
 
 const getByIdSales = async (id) => { 
   const result = await connection.execute(
-    `SELECT * FROM ${table2} WHERE sale_id = ${id}, date ORDER BY sale_id ASC, product_id ASC`,
+    `SELECT sa.id AS 'saleId',
+    sa.date AS 'date',
+    pr.product_id AS 'productId',
+    pr.quantity AS 'quantity'
+    FROM ${table1} AS sa
+    INNER JOIN ${table2} AS pr ON sa.id = pr.sale_id
+    WHERE sale_id = ${id}
+    ORDER BY sale_id ASC, product_id ASC`,
   );
   return result;
 };
