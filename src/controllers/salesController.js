@@ -32,7 +32,7 @@ const upDateSales = async (req, res) => {
 
   const type = await serviceSales.upDateSales(id, body);
 
-  const result = { saleid: JSON.parse(id), itemsUpdated: body };
+  const result = { saleId: JSON.parse(id), itemsUpdated: body };
 
   if (!type) {
     return res.status(200).json({ result });
