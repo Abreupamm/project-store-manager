@@ -16,4 +16,14 @@ const getSales = async (req, res) => {
   return res.status(200).json(message);
 };
 
-module.exports = { sales, getSales };
+const deleteSales = async (req, res) => { 
+  const { id } = req.params;
+
+  const { type } = await serviceSales.deleteSales(id);
+
+  if (!type) {
+    return res.status(204).end();
+  }
+};
+
+module.exports = { sales, getSales, deleteSales };
