@@ -23,7 +23,7 @@ const insertProducts = async (product) => {
 };
 
 const upDateProductById = async (id, newName) => {
-  const product = connection.execute(
+  const product = await connection.execute(
     `UPDATE ${table}
     SET name = ${newName}
     WHERE id = ${id}`,
