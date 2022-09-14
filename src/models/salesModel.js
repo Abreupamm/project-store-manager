@@ -26,7 +26,15 @@ const getAllSales = async () => {
   return result;
 };
 
+const getByIdSales = async (id) => { 
+  const result = await connection.execute(
+    `SELECT * FROM ${table2} WHERE sale_id = ${id} ORDER BY sale_id ASC, product_id ASC`,
+  );
+  return result;
+};
+
 module.exports = {
   createSales,
   getAllSales,
+  getByIdSales,
 };
