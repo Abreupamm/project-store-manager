@@ -1,16 +1,28 @@
 const mapError = require('../../utils/error');
+const { selectProducts } = require('../../models/productsModel');
 
-const validProductId = (req, res, next) => { 
+const validProductId = async (req, res, next) => { 
   const { body } = req;
-  
   const productId = body.filter((item) => item.productId);
   
-  if (productId.length !== body.length || !productId) {
+  if (productId.length === 0) {
     return res
-      .status(mapError('IS_REQUIRED'))
-      .json({ message: '"productId" is required' });
+    .status(mapError('IS_REQUIRED'))
+    .json({ message: '"productId" is required' });
   }
-  
+
+  const isProductId = await Promise.all(body.map(async (item) => {
+    const result = await selectProducts(item.productId);
+    return result[0];
+  }));
+
+  const isId = isProductId.every((item) => item !== undefined);
+
+  if (!isId) {
+    return res
+      .status(mapError('NOT_FOUND'))
+      .json({ message: 'Product not found' });
+  }
   next();
 };
 
