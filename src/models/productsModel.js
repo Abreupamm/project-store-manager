@@ -22,4 +22,17 @@ const insertProducts = async (product) => {
   return insertId;
 };
 
-module.exports = { selectProducts, insertProducts };
+const upDateProductById = async (id, newName) => {
+  const product = connection.execute(
+    `UPDATE ${table}
+    SET name = ${newName}
+    WHERE id = ${id}`,
+  );
+  return product;
+};
+
+module.exports = {
+  selectProducts,
+  insertProducts,
+  upDateProductById,
+};
