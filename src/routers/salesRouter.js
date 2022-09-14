@@ -5,6 +5,7 @@ const router = express.Router();
 const salesController = require('../controllers/salesController');
 const { validProductId } = require('../middlewares/sales/productIdValid');
 const { validQuantity } = require('../middlewares/sales/quantityValid');
+const { validSaleById } = require('../middlewares/sales/saleValid');
 
 router.post('/',
   validProductId,
@@ -12,6 +13,6 @@ router.post('/',
   salesController.sales);
 
 router.get('/', salesController.getSales);
-router.get('/:id', salesController.getSales);
+router.get('/:id', validSaleById, salesController.getSales);
 
 module.exports = router;
