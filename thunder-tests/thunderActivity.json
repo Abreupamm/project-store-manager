@@ -70,16 +70,16 @@
     "colId": "history",
     "containerId": "",
     "name": "https://localhost:3000/products",
-    "url": "localhost:3000/products/2",
+    "url": "localhost:3000/sales/2",
     "method": "PUT",
     "sortNum": 0,
     "created": "2022-09-13T18:37:31.264Z",
-    "modified": "2022-09-14T20:26:35.503Z",
+    "modified": "2022-09-14T22:42:59.152Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"jkhyugfytftftft\"\n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
       "form": []
     },
     "tests": []

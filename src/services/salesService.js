@@ -22,9 +22,15 @@ const deleteSales = async (id) => {
   const result = await modelsSales.deleteSaleById(id);
   return { type: null, result };
 };
+
+const upDateSales = async (id, products) => { 
+  const { type } = await modelsSales.upDateSalesById(id, products);
+  return type;
+};
  
 module.exports = {
   newSale,
   getSales,
   deleteSales,
+  upDateSales,
 };

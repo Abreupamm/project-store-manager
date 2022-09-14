@@ -13,7 +13,15 @@ router.post('/',
   salesController.sales);
 
 router.get('/', salesController.getSales);
+
 router.get('/:id', validSaleById, salesController.getSales);
+
 router.delete('/:id', validSaleById, salesController.deleteSales);
+
+router.put('/:id',
+  validSaleById,
+  validProductId,
+  validQuantity,
+  salesController.upDateSales);
 
 module.exports = router;

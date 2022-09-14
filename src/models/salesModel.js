@@ -3,6 +3,17 @@ const connection = require('../db/connection');
 const table1 = 'StoreManager.sales';
 const table2 = 'StoreManager.sales_products';
 
+const upDateSalesById = async (id, products) => {
+  await Promise.all(products.map(async (item) => {
+    await connection.execute(
+      `UPDATE ${table2}
+    SET quantity = ${item.quantity}
+    WHERE sale_id = ${id} AND product_id = ${item.productId}`,
+    );
+  }));
+  return { type: null };
+};
+
 const createSales = async (sales) => {
   const [{ insertId }] = await connection.execute(
     `INSERT INTO ${table1} (date) VALUES
@@ -57,4 +68,5 @@ module.exports = {
   getAllSales,
   getByIdSales,
   deleteSaleById,
+  upDateSalesById,
 };
