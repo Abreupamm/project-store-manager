@@ -19,6 +19,14 @@ const createSales = async (sales) => {
   return insertId;
 };
 
+const getAllSales = async () => { 
+  const result = await connection.execute(
+    `SELECT * FROM ${table2}`,
+  );
+  return result;
+};
+
 module.exports = {
   createSales,
+  getAllSales,
 };
