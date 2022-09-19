@@ -14,10 +14,17 @@ describe('Teste de products na camanda model', () => {
     stub.restore();
   });
 
-  it("Verifica ese retorna um produto", async () => {
+  it("Verifica se retorna um produto", async () => {
    const stub =  sinon.stub(connection, "execute").resolves([productsMock.productById]);
     const result = await productsModel.selectProductsById(2);
     expect(result).to.equal(productsMock.productById);
+    stub.restore();
+  });
+
+  it("Verifica se é possível cadastrar um produto", async () => {
+    const stub = sinon.stub(connection, 'execute').resolves([{insertId: 4}]);
+    const result = await productsModel.insertProducts('ProdutoX');
+    expect(result).to.equal(4);
     stub.restore();
   });
 

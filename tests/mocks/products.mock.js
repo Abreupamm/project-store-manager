@@ -13,13 +13,14 @@ const productsAll = [
   },
 ];
 
-
 const productById = {
   id: 2,
   name: "Traje de encolhimento",
 };
 
+
 module.exports = {
   productsAll,
   productById,
+  newProduct,
 };
