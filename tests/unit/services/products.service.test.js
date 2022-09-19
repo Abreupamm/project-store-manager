@@ -1,5 +1,5 @@
-const sinon = require("sinon");
-const { expect } = require("chai");
+const sinon = require('sinon');
+const { expect } = require('chai');
 
 const productService = require('../../../src/services/productsService');
 const productModel = require('../../../src/models/productsModel');
