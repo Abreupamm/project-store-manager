@@ -14,7 +14,7 @@ describe('Teste de products na camanda model', () => {
     stub.restore();
   });
 
-  it("Verifica se retorna um produto", async () => {
+  it('Verifica se retorna um produto ao buscar pelo ID', async () => {
    const stub =  sinon.stub(connection, "execute").resolves([productsMock.productById]);
     const result = await productsModel.selectProductsById(2);
     expect(result).to.equal(productsMock.productById);

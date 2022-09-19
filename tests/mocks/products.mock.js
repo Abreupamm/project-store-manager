@@ -22,5 +22,4 @@ const productById = {
 module.exports = {
   productsAll,
   productById,
-  newProduct,
 };
