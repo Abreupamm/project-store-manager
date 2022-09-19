@@ -2,16 +2,18 @@ const connection = require('../db/connection');
 
 const table = 'StoreManager.products';
 
-const selectProducts = async (productId) => {
-  let products;
-  if (!productId) { 
-    products = await connection.execute(`SELECT * FROM ${table}`);
-  } else {
-    products = await connection.execute(
-      'SELECT * FROM StoreManager.products WHERE id = ?',
-      [productId],
-    );
-  }
+const selectProducts = async () => {
+  const products = await connection.execute(`SELECT * FROM ${table}`);
+ 
+  return products[0];
+};
+
+const selectProductsById = async (productId) => {
+  const products = await connection.execute(
+    'SELECT * FROM StoreManager.products WHERE id = ?',
+    [productId],
+  );
+  
   return products[0];
 };
 
@@ -43,6 +45,7 @@ const deleteProductById = async (id) => {
 
 module.exports = {
   selectProducts,
+  selectProductsById,
   insertProducts,
   upDateProductById,
   deleteProductById,

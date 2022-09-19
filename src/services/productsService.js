@@ -11,7 +11,7 @@ const getAllProducts = async () => {
 };
 
 const getProductsById = async (productId) => { 
-  const result = await modelsProducts.selectProducts(productId);
+  const result = await modelsProducts.selectProductsById(productId);
 
   if (result.length === 0) return { type: mapError('NOT_FOUND'), message: 'Product not found' };
 
