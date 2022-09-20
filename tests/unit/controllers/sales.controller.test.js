@@ -19,4 +19,14 @@ describe('Teste de vendas na camada Controller', () => {
     chai.expect(result.status).to.be.deep.equal(200);
     stub.restore();
   });
+
+  it('Verifica se retorna um venda ao buscar pelo id', async () => {
+    const stub = sinon
+      .stub(salesService, 'newSale')
+      .resolves({ type: null, message: salesMock.salesAll });
+    const result = await chai.request(app).get('/sales/1');
+    chai.expect(result.body).to.be.deep.equal(salesMock.saleById);
+    chai.expect(result.status).to.be.deep.equal(200);
+    stub.restore();
+  });
 });

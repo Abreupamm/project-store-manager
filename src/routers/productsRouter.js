@@ -7,6 +7,8 @@ const product = require('../middlewares/products/productIdValid');
 
 const productsController = require('../controllers/productsContoller');
 
+router.get('/search?', productsController.productSearch);
+
 router.post('/', name.validName, productsController.productPost);
 
 router.get('/', productsController.products);

@@ -14,4 +14,13 @@ describe('Teste de vendas na camanda model', () => {
     stub.restore();
   });
 
+   it("Verifica se retorna uma venda ao buscar pelo id", async () => {
+     const stub = sinon
+       .stub(connection, "execute")
+       .resolves(salesMock.saleById);
+     const result = await salesModel.deleteSaleById(1);
+     chai.expect(result).to.equal(salesMock.saleById);
+     stub.restore();
+   });
+
 });

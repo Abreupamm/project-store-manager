@@ -14,4 +14,18 @@ const salesAll = [
 
 ];
 
-module.exports = { salesAll };
+const saleById = [
+  {
+    date: "2022-09-20T01:11:10.000Z",
+    productId: 1,
+    quantity: 5,
+  },
+  {
+    date: "2022-09-20T01:11:10.000Z",
+    productId: 2,
+    quantity: 10,
+  }
+
+]
+
+module.exports = { salesAll, saleById };
