@@ -10,7 +10,7 @@ const productsMock = require('../../mocks/products.mock');
 
 describe('Teste de products na camada Controller', () => {
   
-  it('Verifica se retorta todos os produtos', async () => {
+  it('Verifica se retorna todos os produtos', async () => {
     const stub = sinon
       .stub(productsService, 'getAllProducts')
       .resolves({ type: null, message: productsMock.productsAll });
