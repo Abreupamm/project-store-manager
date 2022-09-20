@@ -1,5 +1,5 @@
 const mapError = require('../../utils/error');
-const { selectProducts } = require('../../models/productsModel');
+const productsModel = require('../../models/productsModel');
 
 const validProductId = async (req, res, next) => { 
   const { body } = req;
@@ -12,7 +12,7 @@ const validProductId = async (req, res, next) => {
   }
 
   const isProductId = await Promise.all(body.map(async (item) => {
-    const result = await selectProducts(item.productId);
+    const result = await productsModel.selectProductsById(item.productId);
     return result[0];
   }));
 

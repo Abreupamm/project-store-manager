@@ -3,25 +3,25 @@ const express = require('express');
 const router = express.Router();
 
 const salesController = require('../controllers/salesController');
-const { validProductId } = require('../middlewares/sales/productIdValid');
-const { validQuantity } = require('../middlewares/sales/quantityValid');
-const { validSaleById } = require('../middlewares/sales/saleValid');
+const productIdValid = require('../middlewares/sales/productIdValid');
+const quantityValid = require('../middlewares/sales/quantityValid');
+const saleValid = require('../middlewares/sales/saleValid');
 
 router.post('/',
-  validProductId,
-  validQuantity,
+  productIdValid.validProductId,
+  quantityValid.validQuantity,
   salesController.sales);
 
 router.get('/', salesController.getSales);
 
-router.get('/:id', validSaleById, salesController.getSales);
+router.get('/:id', saleValid.validSaleById, salesController.getSales);
 
-router.delete('/:id', validSaleById, salesController.deleteSales);
+router.delete('/:id', saleValid.validSaleById, salesController.deleteSales);
 
 router.put('/:id',
-  validSaleById,
-  validProductId,
-  validQuantity,
+  saleValid.validSaleById,
+  productIdValid.validProductId,
+  quantityValid.validQuantity,
   salesController.upDateSales);
 
 module.exports = router;

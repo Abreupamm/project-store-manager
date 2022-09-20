@@ -1,9 +1,9 @@
 const mapError = require('../../utils/error');
-const { getSales } = require('../../services/salesService');
+const salesService = require('../../services/salesService');
 
 const validSaleById = async (req, res, next) => { 
   const { id } = req.params;
-  const { message } = await getSales(id);
+  const { message } = await salesService.getSales(id);
 
   if (message.length === 0) {
     return res
